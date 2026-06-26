@@ -34,6 +34,8 @@ tab_conocen <- bind_rows(
   tab(s08_p01_8, "Compañeras/os de estudio/trabajo")
 )
 
+saveRDS(tab_conocen,"outputs/lgbti_tab_conocen.rds")
+
 plot_conocen <- tab_conocen %>%
   filter(respuesta == "sí") %>%
   ggplot(aes(x = reorder(grupo, porcentaje), y = porcentaje)) +
@@ -54,6 +56,8 @@ tab_aceptacion <- bind_rows(
   tab(s08_p01_7_1a, "Amigas/os"),
   tab(s08_p01_8_1a, "Compañeras/os de estudio/trabajo")
 )
+
+saveRDS(tab_aceptacion,"outputs/lgbti_tab_aceptacion.rds")
 
 plot_aceptacion_separada <- tab_aceptacion %>%
   ggplot(aes(x = grupo, y = porcentaje, fill = respuesta)) +
